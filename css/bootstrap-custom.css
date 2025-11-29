@@ -1,0 +1,190 @@
+/* ===== BOOTSTRAP CUSTOM OVERRIDES ===== */
+
+/* Button overrides */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border: none;
+    border-radius: 50px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-light {
+    background: var(--white);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 50px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+    background: var(--light-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Card overrides */
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Form control overrides */
+.form-control {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gray);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+/* Badge overrides */
+.badge {
+    font-weight: 500;
+    padding: 0.35em 0.65em;
+}
+
+/* Navbar toggler */
+.navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Container fluid override */
+.container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Grid system spacing */
+.row {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Background utilities */
+.bg-light {
+    background-color: var(--gray-light) !important;
+}
+
+/* Text color utilities */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-secondary {
+    color: var(--secondary-color) !important;
+}
+
+/* Margin and padding utilities */
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mt-5 {
+    margin-top: 3rem !important;
+}
+
+.pt-5 {
+    padding-top: 3rem !important;
+}
+
+.pb-5 {
+    padding-bottom: 3rem !important;
+}
+
+/* Display utilities */
+.d-none {
+    display: none !important;
+}
+
+.d-block {
+    display: block !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+/* Position utilities */
+.position-relative {
+    position: relative !important;
+}
+
+.position-absolute {
+    position: absolute !important;
+}
+
+.sticky-top {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1020;
+}
+
+/* Overflow utilities */
+.overflow-hidden {
+    overflow: hidden !important;
+}
+
+/* Z-index utilities */
+.z-1 {
+    z-index: 1;
+}
+
+.z-2 {
+    z-index: 2;
+}
+
+/* Custom spacing for specific components */
+@media (min-width: 992px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* Print styles for Bootstrap components */
+@media print {
+    .container {
+        width: auto;
+    }
+    
+    .btn, .navbar, .footer {
+        display: none !important;
+    }
+    
+    .col-md-4, .col-md-6, .col-md-8 {
+        float: left;
+        width: 33.333333%;
+    }
+}

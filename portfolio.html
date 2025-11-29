@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doua Galai - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--light-color) !important;
+        }
+        
+        .nav-link {
+            color: var(--light-color) !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            text-align: center;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .skill-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .project-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-size: 3rem;
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+        
+        .badge-custom {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .language-level {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        
+        .language-progress {
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Doua Galai</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">À Propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Compétences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Expérience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Doua Galai</h1>
+            <p>Étudiante en Génie Logiciel et Systèmes d'Information</p>
+            <p>Passionnée par les technologies émergentes, l'IA et la gestion de projet</p>
+            <a href="#contact" class="btn btn-light btn-lg">Me Contacter</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title">À Propos de Moi</h2>
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center mb-4">
+                    <div class="rounded-circle bg-light d-inline-flex align-items-center justify-content-center" style="width: 200px; height: 200px;">
+                        <i class="fas fa-user fa-5x text-primary"></i>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <p>Étudiante en 3ème année de Génie Logiciel et Systèmes d'Information à l'ISLAI Béja. Expérience pratique en conception et développement d'applications web innovantes. Passionnée par les technologies émergentes, l'IA et la gestion de projet. Recherche un stage PFE pour contribuer à des projets innovants.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <p><strong><i class="fas fa-phone me-2"></i>Téléphone:</strong> 24086905</p>
+                            <p><strong><i class="fas fa-envelope me-2"></i>Email:</strong> douagalai225@gmail.com</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong><i class="fas fa-map-marker-alt me-2"></i>Adresse:</strong> Ras Jebel, Bizerte, Tunis</p>
+                            <p><strong><i class="fab fa-linkedin me-2"></i>LinkedIn:</strong> linkedin.com/in/doua-galai</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Compétences Techniques</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="skill-card text-center">
+                        <i class="fas fa-code skill-icon"></i>
+                        <h4>Langages de Programmation</h4>
+                        <p>Python, Java, JavaScript, C, HTML, CSS, SQL</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="skill-card text-center">
+                        <i class="fas fa-layer-group skill-icon"></i>
+                        <h4>Frameworks</h4>
+                        <p>Django, Spring Boot, Angular, Bootstrap, React</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="skill-card text-center">
+                        <i class="fas fa-database skill-icon"></i>
+                        <h4>Bases de Données</h4>
+                        <p>PostgreSQL, MySQL, SQLite, PostGIS</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="skill-card text-center">
+                        <i class="fas fa-tools skill-icon"></i>
+                        <h4>Outils de Développement</h4>
+                        <p>Git, GitHub, n8n, WireGuard</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="skill-card text-center">
+                        <i class="fas fa-brain skill-icon"></i>
+                        <h4>Intelligence Artificielle</h4>
+                        <p>Machine Learning, Deep Learning</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="skill-card text-center">
+                        <i class="fas fa-project-diagram skill-icon"></i>
+                        <h4>Méthodologies</h4>
+                        <p>Agile, Scrum, Business Model Canvas</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="mt-5 mb-4 text-center">Langues</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Arabe: <span class="badge badge-custom">Langue maternelle</span></p>
+                    <div class="language-level">
+                        <div class="language-progress" style="width: 100%"></div>
+                    </div>
+                    
+                    <p>Français: <span class="badge badge-custom">Courant (C1)</span></p>
+                    <div class="language-level">
+                        <div class="language-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p>Anglais: <span class="badge badge-custom">Courant (B2)</span></p>
+                    <div class="language-level">
+                        <div class="language-progress" style="width: 75%"></div>
+                    </div>
+                    
+                    <p>Espagnol: <span class="badge badge-custom">Intermédiaire (B1)</span></p>
+                    <div class="language-level">
+                        <div class="language-progress" style="width: 60%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Expérience Professionnelle</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Développeuse Full-Stack Django</h4>
+                    <h5>CityCare — Juillet 2025 - Août 2025 — Tunis, Tunisie</h5>
+                    <p>Développement d'une plateforme connectant citoyens et municipalités</p>
+                    <p>Technologies: Django, PostgreSQL, PostGIS, Leaflet, Bootstrap, WireGuard VPN</p>
+                    <p>Implémentation de systèmes d'IA pour l'interprétation de données des tableaux de bord BI</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Développeuse Full-Stack Angular</h4>
+                    <h5>9antra — Juin 2025 - Juillet 2025 — Tunis, Tunisie (Sur Site)</h5>
+                    <p>Développement d'un système de gestion des ressources humaines et employés</p>
+                    <p>Technologies: Spring Boot, Angular, TypeScript, MySQL</p>
+                    <p>Création d'interfaces utilisateur modernes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Projets</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card">
+                        <div class="project-img">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">BALADIA_BOT</h5>
+                            <p class="card-text">Plateforme Intelligence de Gestion Environnementale</p>
+                            <p class="card-text"><small class="text-muted">React.js, Node.js, PostgreSQL, Business Model Canvas — Hackathon S4S 2025</small></p>
+                            <ul>
+                                <li>Résolution du défi de gestion "aveugle" des ressources environnementales municipales</li>
+                                <li>Conception et prototypage d'une plateforme SaaS de centralisation des données environnementales</li>
+                                <li>Développement de l'interface React.js avec visualisation des données organisées sur un map</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card">
+                        <div class="project-img">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">RemarqPFA</h5>
+                            <p class="card-text">Plateforme Collaborative d'Evaluation des Projets Academiques</p>
+                            <p class="card-text"><small class="text-muted">Python, Flask, Bootstrap, JavaScript, SQLite -- 2025</small></p>
+                            <ul>
+                                <li>Conception et développement d'une plateforme web pour l'évaluation des PFA</li>
+                                <li>Système de rôles multiples: Étudiants, Jury, Administrateur</li>
+                                <li>Interface d'évaluation complète avec commentaires détaillés et notations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card">
+                        <div class="project-img">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Application Mobile</h5>
+                            <p class="card-text">Application de gestion de tâches collaborative</p>
+                            <p class="card-text"><small class="text-muted">React Native, Firebase, Node.js</small></p>
+                            <ul>
+                                <li>Développement d'une application mobile multiplateforme</li>
+                                <li>Fonctionnalités de collaboration en temps réel</li>
+                                <li>Interface utilisateur intuitive et responsive</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Contactez-moi</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="contact-form">
+                        <form id="contactForm" novalidate>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nom</label>
+                                <input type="text" class="form-control" id="name" required>
+                                <div class="invalid-feedback">Veuillez entrer votre nom.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                                <div class="invalid-feedback">Veuillez entrer une adresse email valide.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Sujet</label>
+                                <input type="text" class="form-control" id="subject" required>
+                                <div class="invalid-feedback">Veuillez entrer un sujet.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                                <div class="invalid-feedback">Veuillez entrer votre message.</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Envoyer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="social-links mb-3">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2025 Doua Galai. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form validation
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var form = document.getElementById('contactForm');
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            }, false);
+        })();
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
