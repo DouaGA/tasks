@@ -1,0 +1,23 @@
+{
+  "name": "user-api",
+  "version": "1.0.0", 
+  "description": "API REST complète - Memory + Database",
+  "main": "src/server.js",
+  "scripts": {
+    "start:v1": "node src/versions/v1-memory/server.js",
+    "dev:v1": "nodemon src/versions/v1-memory/server.js", 
+    "start:v2": "node src/versions/v2-database/server.js",
+    "dev:v2": "nodemon src/versions/v2-database/server.js",
+    "test:v1": "curl http://localhost:5000/api/users",
+    "test:v2": "curl http://localhost:6000/api/users"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
